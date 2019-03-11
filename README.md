@@ -4,15 +4,15 @@ A simple client for the [BunnyCDN API](https://bunnycdn.docs.apiary.io). **(WIP)
 
 ## Usage
 
-    const BunnyCDN = require('bunnycdn')
+    const bunnycdn = require('bunnycdn')
 
-    const client = new BunnyCDN({
+    const client = bunnycdn({
       apiKey: 'YOUR-API-KEY'
     })
 
-    client.pullzone.list().then(items => {
-      // items is an array of pullzones
-    }).catch(console.error)
+    client.pullzone.list()
+      .then(console.log)
+      .catch(console.error)
 
 ## Methods
 
@@ -71,3 +71,7 @@ The storage API [documentation](https://bunnycdnstorage.docs.apiary.io) is separ
 **[client.storage.delete(path)](https://bunnycdnstorage.docs.apiary.io/#reference/0/storagezonenamepathfilename/delete)**
 
 **[client.storage.list(path)](https://bunnycdnstorage.docs.apiary.io/#reference/0/storagezonenamepath/get)**
+
+## Errors
+
+All HTTP errors will have a `status` and `message` property. Where `status` will be the HTTP status code (ex. 500), and `message` will be the corresponding error message (ex. Internal Server Error). If the API response contains a `body` property, it will also be present on the error object.
