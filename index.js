@@ -60,7 +60,7 @@ class BunnyCDN {
     return this._req('/pullzone')
   }
 
-  createPullzone (body = {}) {
+  createPullzone (body) {
     return this._req('/pullzone', {
       body,
       method: 'POST'
@@ -71,7 +71,7 @@ class BunnyCDN {
     return this._req(`/pullzone/${id}`)
   }
 
-  updatePullzone (id, body = {}) {
+  updatePullzone (id, body) {
     return this._req(`/pullzone/${id}`, {
       body,
       method: 'POST'
@@ -80,6 +80,26 @@ class BunnyCDN {
 
   deletePullzone (id) {
     return this._req(`/pullzone/${id}`, {
+      method: 'DELETE'
+    })
+  }
+
+  purgeCache (id) {
+    return this._req(`/pullzone/${id}/purgeCache`, {
+      method: 'POST'
+    })
+  }
+
+  addPullzoneHostname (body) {
+    return this._req(`/pullzone/addHostname`, {
+      body,
+      method: 'POST'
+    })
+  }
+
+  deletePullzoneHostname (query) {
+    return this._req(`/pullzone/addHostname`, {
+      query,
       method: 'DELETE'
     })
   }

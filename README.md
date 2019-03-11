@@ -25,10 +25,16 @@ See official [BunnyCDN documentation](https://bunnycdn.docs.apiary.io) for more 
 
 **listPullzones()**
 
-**createPullzone(body)**
+**createPullzone(data)**
 
 **getPullzone(id)**
 
-**updatePullzone(id, body)**
+**updatePullzone(id, data)**
 
 **deletePullzone(id)**
+
+**purgeCache(id)**
+
+**addPullzoneHostname(data)**
+
+**deletePullzoneHostname(data)**
